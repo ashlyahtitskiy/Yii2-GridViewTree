@@ -40,10 +40,10 @@ class FoldersSearch extends Folders
      */
     public function search($params)
     {
-        if (!isset($params['id']){
-            $query = Folders::find()->Where(['parent_id' => NULL]);
+        if (!isset($params['id'])){
+            $query = Catalogue::find()->Where(['parent_id' => NULL])->orderBy(['isfolder'=>SORT_DESC]);
         } else {
-            $query = Folders::find()->Where(['or','parent_id='.$params['id'],'id='.$params['id']]);
+            $query = Catalogue::find()->Where(['or','parent_id='.$params['id'],'id='.$params['id']])->orderBy(['isfolder'=>SORT_DESC]);
         }
 
         // add conditions that should always apply here
