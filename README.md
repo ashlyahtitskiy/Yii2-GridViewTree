@@ -28,7 +28,7 @@ Styled with fontawesome.
 ```php
     public function search($params)
     {
-            if (!$params['id']){
+            if (!isset($params['id']){
                 $query = Folders::find()->Where(['parent_id' => NULL]);
             } else {
                 $query = Folders::find()->Where(['or','parent_id='.$params['id'],'id='.$params['id']]);
